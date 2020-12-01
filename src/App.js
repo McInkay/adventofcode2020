@@ -31,7 +31,21 @@ export default function App() {
 }
 
 function Home() {
-  return <div className="calendar">{[...Array(24).keys()].map((day) => <p key={day}><Link to={`/day/${day + 1}`}>Day {day + 1}</Link></p>)}</div>;
+  return <div className="calendar">{[...Array(24).keys()].map((day) => <DayEntry day={day + 1} key={day}></DayEntry>)}</div>;
+}
+
+function DayEntry({day}) {
+  try {
+    require(`../day${day}`);
+    return (
+      <Link to={`/day/${day}`}>Day {day}</Link>
+    )
+  } catch (e) {
+    return (
+      <p key={day} className="disabled">Day {day}</p>
+    )
+  }
+
 }
 
 function DayWrapper() {

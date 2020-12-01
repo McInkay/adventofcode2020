@@ -35,12 +35,21 @@ header a {
   margin: 20px;
 }
 
-.calendar p {
+.calendar > * {
   padding-top: calc(100% / (4/1));
   padding-bottom: calc(100% / (4/1));
   border: 1px solid;
   grid-gap: 0;
   margin: 0;
+}
+
+.calendar a:hover {
+  background-color: #444a4d;
+}
+
+.calendar p.disabled {
+  color: grey;
+  border-color: grey;
 }
 
 .day-wrapper {
