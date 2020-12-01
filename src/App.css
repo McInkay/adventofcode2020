@@ -28,18 +28,37 @@ header a {
 }
 
 .calendar {
+  --cal-cols: 5;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--cal-cols), 1fr);
+  grid-template-rows: repeat(var(--cal-cols), 1fr);
 
   margin: 50px;
 }
 
-@media(min-width: 1400px) {
+@media(min-width: 1300px) {
   .calendar{
     width: 1200px;
     margin: auto;
     margin-top: 50px;
+  }
+}
+
+@media(max-width: 900px) {
+  .calendar{
+    --cal-cols: 4;
+  }
+}
+
+@media(max-width: 700px) {
+  .calendar{
+    --cal-cols: 3;
+  }
+}
+
+@media(max-width: 600px) {
+  .calendar{
+    --cal-cols: 2;
   }
 }
 
