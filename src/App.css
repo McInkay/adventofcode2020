@@ -92,7 +92,16 @@ header a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: calc(100% - 4rem);
+  height: calc(100% - 6rem);
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+@media(max-width: 1300px) {
+  .day{
+    margin: 50px;
+  }
 }
 
 .day .data-input {
