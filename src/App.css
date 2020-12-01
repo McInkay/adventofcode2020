@@ -19,6 +19,11 @@ header {
   height: 10vh;
 }
 
+header h3 {
+  width: 100%;
+  margin: auto;
+}
+
 header a {
   text-decoration: none;
 }

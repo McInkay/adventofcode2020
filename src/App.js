@@ -14,7 +14,7 @@ export default function App() {
     <Router>
       <div className="App">
         <header>
-          <p> <Link to="/">Al's Advent of Code </Link> </p>
+          <h3> <Link to="/">Al's Advent of Code </Link> </h3>
         </header>
 
         <Switch>
