@@ -32,7 +32,15 @@ header a {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
 
-  margin: 20px;
+  margin: 50px;
+}
+
+@media(min-width: 1400px) {
+  .calendar{
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+  }
 }
 
 .calendar > * {
