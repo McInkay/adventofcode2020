@@ -95,7 +95,7 @@ header a {
   height: calc(100% - 10rem);
   margin: auto;
   margin-top: 50px;
-  max-width: 550px;
+  max-width: 800px;
   max-height: 500px;
   min-height: 400px;
 }
