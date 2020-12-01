@@ -1,0 +1,47 @@
+a {
+  color: inherit;
+}
+
+.App {
+  text-align: center;
+}
+
+header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 10vh;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.day-wrapper {
+  height: 88vh;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: calc(100% - 4rem);
+}
+
+.day .data-input {
+  grid-row: span 2;
+}
+
+.output-2, .output-1 {
+  font-family: monospace;
+}
