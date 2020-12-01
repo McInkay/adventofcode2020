@@ -31,7 +31,7 @@ export default function App() {
 }
 
 function Home() {
-  return <div>{[...Array(24).keys()].map((day) => <p key={day}><Link to={`/day/${day + 1}`}>Day {day + 1}</Link></p>)}</div>;
+  return <div className="calendar">{[...Array(24).keys()].map((day) => <p key={day}><Link to={`/day/${day + 1}`}>Day {day + 1}</Link></p>)}</div>;
 }
 
 function DayWrapper() {
