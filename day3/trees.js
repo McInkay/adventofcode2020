@@ -15,7 +15,6 @@ const part2 = (data) => {
 
 const getTrees = (pattern, xMod, yMod) => {
 	const h = new Hill(pattern, xMod, yMod);
-	console.log(h.hasNextSpot());
 	while (h.hasNextSpot()) {
 		h.findNextSpot();
 	}

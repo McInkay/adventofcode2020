@@ -64,12 +64,34 @@ function DayWrapper() {
   )
 }
 
+function ResultBox({data, func, x}) {
+  return (
+    <>
+      <h2>Part {x} Result: <Result data={data} func={func}></Result></h2>
+    </>
+  )
+}
+
+function Result({data, func}) {
+  if (!data) {
+    return "Missing input data";
+  }
+
+  const result = String(func(data)).split("\n");
+  return (
+    <>
+      {result.map((item, key) => (
+        <span key={key}>{item}<br/></span>
+      ))}
+    </>
+  )
+}
+
 function Day({day}) {
   let [data, setData] = useState("");
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(day.data.default);
-      console.log(res);
       const text = await res.text();
       setData(text);
     }
@@ -77,21 +99,13 @@ function Day({day}) {
   }, [day.data]);
   return (
     <div className="day">
-      <textarea className="data-input" placeholder="Loading Data..." value={data} onChange={({target: {value}}) => setData(value)}></textarea>
-      <div className="output-1">Part 1: <br />{data ? String(day.part1(data)).split("\n").map((item, key) => (
-            <span key={key}>
-              {item}
-              <br/>
-            </span>
-          )
-        ) : "Missing input data"}</div>
-      <div className="output-2">Part 2: <br /> {data ? (day.part2 ? String(day.part2(data)).split("\n").map((item, key) => (
-            <span key={key}>
-              {item}
-              <br/>
-            </span>
-          )
-        ) : "No part 2 code") : "Missing input data"}</div>
+      <div className="output-1"><ResultBox data={data} func={day.part1} x="1" /></div>
+      <div className="output-2"><ResultBox data={data} func={day.part2} x="2" /></div>
+      <div className="input-header"><h3>Input:</h3></div>
+      <textarea className="data-input" 
+                placeholder="Loading Data..." 
+                value={data} 
+                onChange={({target: {value}}) => setData(value)}></textarea>
     </div>
   );
 }

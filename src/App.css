@@ -91,12 +91,12 @@ header a {
 .day {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  height: calc(100% - 10rem);
+  grid-template-rows: 4rem 4rem 1fr;
+  height: calc(100% - 8rem);
   margin: auto;
   margin-top: 50px;
   max-width: 800px;
-  max-height: 500px;
+  max-height: 700px;
   min-height: 400px;
 }
 
@@ -107,9 +107,14 @@ header a {
 }
 
 .day .data-input {
-  grid-row: span 2;
+  grid-column: span 2;
+  grid-row: 3;
 }
 
 .output-2, .output-1 {
   font-family: monospace;
+}
+
+.input-header {
+  text-align: left;
 }

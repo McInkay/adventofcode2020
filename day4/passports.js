@@ -44,7 +44,7 @@ class Passport {
 
 	hasValidHairColor() {
 		const hairColor = this.map["hcl"];
-		return Boolean(hairColor && hairColor.match(/^#[a-f0-9]{6}$/));
+		return Boolean(hairColor && hairColor.match(/^#[a-fA-F0-9]{6}$/));
 	}
 
 	hasValidEyeColor() {
