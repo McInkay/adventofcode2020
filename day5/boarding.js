@@ -5,6 +5,15 @@ const part1 = (lines) => {
 }
 
 const part2 = (lines) => {
+	const ids = [];
+	lines
+		.map(seatId)
+		.forEach((id) => ids[id] = true)
+	for(let i = 0; i < ids.length; i++) {
+		if (!ids[i] && ids[i - 1] && ids[i + 1]) {
+			return i;
+		}
+	}
 }
 
 const seatId = (string) => {
