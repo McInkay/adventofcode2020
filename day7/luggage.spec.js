@@ -63,4 +63,44 @@ describe('Luggage', () => {
 
   });
 
+  describe('Part 2', () => {
+
+    beforeEach(() => {
+      tested = luggage.part2;
+    });
+
+    it('Returns correct number when only 1 level of recursion', () => {
+      const rules = [
+        "muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.",
+        "shiny gold bags contain 1 dark olive bag.",
+        "dark olive bags contain no other bags.",
+        "faded blue bags contain no other bags."
+      ];
+      expect(tested(rules)).toEqual(1);
+    });
+
+    it('Returns correct number when 2 levels of recursion', () => {
+      const rules = [
+        "green bags contain no other bags.",
+        "dark olive bags contain 2 green bags.",
+        "shiny gold bags contain 1 dark olive bag."
+      ];
+      expect(tested(rules)).toEqual(3);
+    });
+
+    it('Returns correct number when 2 levels of recursion', () => {
+      const rules = [
+        "shiny gold bags contain 2 dark red bags.",
+        "dark red bags contain 2 dark orange bags.",
+        "dark orange bags contain 2 dark yellow bags.",
+        "dark yellow bags contain 2 dark green bags.",
+        "dark green bags contain 2 dark blue bags.",
+        "dark blue bags contain 2 dark violet bags.",
+        "dark violet bags contain no other bags.",
+      ];
+      expect(tested(rules)).toEqual(126);
+    });
+
+  });
+
 });

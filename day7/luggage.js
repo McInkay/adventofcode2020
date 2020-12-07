@@ -18,7 +18,7 @@ const getMap = (luggage) => {
 		if (bagMatches) {
 			bagMatches.forEach((match) => {
 				const results = match.match(bagRegex);
-				map[name][[results[2]]] = results[1];
+				map[name][[results[2]]] = Number(results[1]);
 			});
 		}
 	});
@@ -44,7 +44,20 @@ const findGoldBags = (keys, map) => {
 	return routesSet;
 }
 
-const part2 = (groups) => {
+const part2 = (luggage) => {
+	const map = getMap(luggage);
+	return getContainedBags('shiny gold', map);
+}
+
+const getContainedBags = (name, map) => {
+	const bag = map[name];
+	let total = 0;
+	Object.keys(bag).forEach((innerBag) => {
+		const eachBagContains = getContainedBags(innerBag, map);
+		const numberOfInnerBags = bag[innerBag];
+		total += (numberOfInnerBags * eachBagContains) + numberOfInnerBags;
+	});
+	return total;
 }
 
 module.exports = {
